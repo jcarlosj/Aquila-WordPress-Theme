@@ -12,5 +12,9 @@
         <?php wp_head(); ?>
     </head>
     <body class="<?php body_class(); ?>">
-        <?php wp_body_open(); ?>
+        <?php /** Verifica si la funcion existe para agregarla (wp_body_open aparece en la version 5.2 de WordPress) */ 
+            if( function_exists( 'wp_body_open' ) ) {
+                wp_body_open();
+            } 
+        ?>
         <header>Cabecera</header>
