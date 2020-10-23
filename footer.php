@@ -4,5 +4,6 @@
  */
 ?>
         <footer>Pie de Pagina</footer>
+        <?php wp_footer(); ?>
     </body>
 </html>
