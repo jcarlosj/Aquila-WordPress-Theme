@@ -1,0 +1,29 @@
+<?php
+/** Trait Singleton for Theme.
+ * @package Aquila
+ */
+
+namespace AQUILA_THEME\Inc\Traits;
+
+trait Singleton {
+
+    public function __construct() {}
+
+    public function __clone() {}
+
+    final public static function get_instance() {
+        static $instance = [];
+
+        $called_class = \get_called_class();
+
+        /** Vefirica que no existe instancia de la clase en el Array */
+        if( ! isset( $instance[ $called_class ] ) ) {
+            $instance[ $called_class ] = new $called_class();   //  Crea la instancia de la clase obtenida en caso no no existir
+
+            do_action( sprintf( 'aquila_theme_singleton_init%s', $called_class ) );     //  Ejecuta funciones conectadas al Hook
+        }
+
+        return $instance[ $called_class ];
+    }
+
+}
