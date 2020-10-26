@@ -37,6 +37,30 @@ class Aquila_Theme {
             'default-image'  => AQUILA_DIR_URI. '/assets/src/images/ny.webp',
             'default-repeat' => 'no-repeat'
         ]);
+        add_theme_support( 'post-thumbnails' );                         //  Habilita la opcion de agregar imagenes personalizadas a las publicaciones
+        add_theme_support( 'customize-selective-refresh-widgets' );     //  Habilita la actualización selectiva para los widgets que se administran dentro del personalizador
+        add_theme_support( 'automatic-feed-links' );                    //  Habilita enlaces automáticos de alimentación para publicar y comentar en el encabezado
+        add_theme_support( 'html5',                                     //  Permite el uso de marcado HTML5 para los formularios de búsqueda, formularios de comentarios, listas de comentarios, galería y subtítulos
+            array( 
+                'comment-list', 
+                'comment-form', 
+                'search-form', 
+                'gallery', 
+                'caption', 
+                'style', 
+                'script' 
+            )
+        );
+        add_theme_support( 'wp-block-styles' );                         //  Habilita soporte para estilos de bloques en Gutenberg (https://make.wordpress.org/core/2018/06/05/whats-new-in-gutenberg-5th-june/)
+        add_theme_support( 'align-wide' );                              //  Habilita soporte de alineacion (Wide/Full Screen) de bloques en Gutenberg 
+        add_editor_style();                                             //  Agrega llamada hoja de estilo personalizadas del editor TinyMCE. Recibe parametro como nombre de archivo relativo a la raíz del tema. También acepta una variedad de hojas de estilo. Es opcional y por defecto es 'editor-style.css'.
+    
+        /** Establece el ancho máximo para el contenido en la interfaz */
+        global $content_width;
+        if( ! isset( $content_width ) ) {
+            $content_width = 1240;
+        }
+
     }
 
 }
