@@ -24,11 +24,11 @@ class Aquila_Theme {
     }
 
     public function register_styles() {
-        wp_enqueue_style( 'style', get_stylesheet_uri(), [], filemtime( get_stylesheet_directory() .'/style.css' ), 'all' );                            //  style.css
+        wp_enqueue_style( 'style', get_stylesheet_uri(), [], filemtime( AQUILA_DIR_STYLE .'/style.css' ), 'all' );                            //  style.css
 
         /** Register Styles */
-        wp_register_style( 'bootstrap', get_template_directory_uri(). '/assets/src/library/css/bootstrap.min.css', [], '4.5.3', 'all' );                //  bootstrap.min.css
-        wp_register_style( 'archive', get_template_directory_uri(). '/assets/src/css/archive.css', [], filemtime( get_stylesheet_directory() .'/assets/src/css/archive.css' ), 'all' );     //  archive.css
+        wp_register_style( 'bootstrap', AQUILA_DIR_URI. '/assets/src/library/css/bootstrap.min.css', [], '4.5.3', 'all' );                //  bootstrap.min.css
+        wp_register_style( 'archive', AQUILA_DIR_URI. '/assets/src/css/archive.css', [], filemtime( AQUILA_DIR_STYLE .'/assets/src/css/archive.css' ), 'all' );     //  archive.css
         
         /** Enqueue Styles */
         wp_enqueue_style( 'bootstrap' );
@@ -39,9 +39,9 @@ class Aquila_Theme {
     }
 
     public function register_scripts() {
-        wp_enqueue_script( 'main-js', get_template_directory_uri() . '/assets/src/js/main.js', array(), filemtime( get_stylesheet_directory() .'/assets/src/js/main.js' ), true );
+        wp_enqueue_script( 'main-js', AQUILA_DIR_URI . '/assets/src/js/main.js', array(), filemtime( AQUILA_DIR_STYLE .'/assets/src/js/main.js' ), true );
         /** Register Scripts */
-        wp_register_script( 'bootstrap-js', get_template_directory_uri(). '/assets/src/library/js/bootstrap.min.js', [ 'jquery' ], '4.5.3', true );    //  bootstrap.min.js
+        wp_register_script( 'bootstrap-js', AQUILA_DIR_URI. '/assets/src/library/js/bootstrap.min.js', [ 'jquery' ], '4.5.3', true );    //  bootstrap.min.js
         
         /** Enqueue Scripts */
         wp_enqueue_script( 'bootstrap-js' );
