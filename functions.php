@@ -15,6 +15,12 @@ if( ! defined( 'AQUILA_DIR_PATH' ) ) {
 
 require_once AQUILA_DIR_PATH. '/inc/helpers/autoloader.php';    //  Incluirá automáticamente todas las clases que definamos 
 
+function aquila_get_theme_instance() {
+	\AQUILA_THEME\Inc\Aquila_Theme::get_instance();
+}
+
+aquila_get_theme_instance();
+
 /** Scripts and styles. */
 function aquila_enqueue_scripts() {
     /** Debugging Code */

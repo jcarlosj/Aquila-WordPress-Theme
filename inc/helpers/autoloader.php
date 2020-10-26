@@ -36,6 +36,10 @@ function autoloader( $resource = '' ) {
 		return;
 	}
 
+	echo '<pre><b>autoloader - path</b><br />'; 
+	print_r( $path ); 
+	//wp_die();
+
 	$directory = '';
 	$file_name = '';
 
@@ -76,6 +80,7 @@ function autoloader( $resource = '' ) {
 
 	if ( ! empty( $resource_path ) && file_exists( $resource_path ) && ( 0 === $is_valid_file || 2 === $is_valid_file ) ) {
 		// Ya nos estamos asegurando de que el archivo exista y sea válido.
+		echo '<pre><b>autoloader - require_once</b> <br />'. $resource_path;
 		require_once( $resource_path ); // phpcs:ignore
 	}
 
