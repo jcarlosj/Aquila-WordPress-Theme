@@ -32,6 +32,11 @@ class Aquila_Theme {
             'flex-height' => true,
             'flex-width'  => true  
         ]);
+        add_theme_support( 'custom-background',  [
+            'default-color'  => 'fff',
+            'default-image'  => AQUILA_DIR_URI. '/assets/src/images/ny.webp',
+            'default-repeat' => 'no-repeat'
+        ]);
     }
 
 }
