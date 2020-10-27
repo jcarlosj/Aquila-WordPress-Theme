@@ -3,11 +3,11 @@
  * @package Aquila
  */
 
- $menu_class = \AQUILA_THEME\Inc\Menus :: get_instance();   //  Obtenemos instancia de Menu
- $header_menu_id = $menu_class -> get_menu_id( 'aquila-header-menu' );
- $header_menu_items = wp_get_nav_menu_items( $header_menu_id );                  //  Recupera todos los elementos del menú de un menú de navegación.
+$menu_class = \AQUILA_THEME\Inc\Menus :: get_instance();   //  Obtenemos instancia de Menu
+$header_menu_id = $menu_class -> get_menu_id( 'aquila-header-menu' );
+$header_menu_items = wp_get_nav_menu_items( $header_menu_id );                  //  Recupera todos los elementos del menú de un menú de navegación.
 
- echo '<pre>';   print_r( $header_menu_items );  wp_die();
+// echo '<pre>';   print_r( $header_menu_items );  wp_die();
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <?php
@@ -20,28 +20,62 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-        </ul>
+        <?php
+            if( ! empty( $header_menu_items ) && is_array( $header_menu_items ) ) {
+        ?>
+                <ul class="navbar-nav mr-auto">
+                    <?php
+                        // echo '<pre>';   print_r( $header_menu_items );  wp_die();
+                        foreach ( $header_menu_items as $menu_item ) {                            
+                            // echo '<pre>';   print_r( $menu_item );  wp_die();
+
+                            /** Verifica si menu_item NO tiene hijos, es decir su menu_item_parent = 0 */
+                            if( ! $menu_item -> menu_item_parent ) {
+                                // echo '<pre>';   print_r( ! $menu_item -> menu_item_parent );  wp_die();
+
+                                $child_menu_items = $menu_class -> get_child_menu_items( $header_menu_items, $menu_item -> ID );
+                                // echo '<pre>';   print_r( $child_menu_items );  wp_die();
+
+                                $has_children = ! empty( $child_menu_items ) && is_array( $child_menu_items );
+
+                                if( ! $has_children ) {
+                                    ?>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?php echo esc_url( $menu_item -> url ); ?>">
+                                                <?php echo esc_html( $menu_item -> title ); ?>
+                                            </a>
+                                        </li>
+                                    <?php
+                                }
+                                else {
+                                    ?>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="<?php echo esc_url( $menu_item -> url ); ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <?php echo esc_html( $menu_item -> title ); ?>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <?php
+                                                    foreach ( $child_menu_items as $child_menu_item ) {
+                                                        ?>
+                                                            <a class="dropdown-item" href="<?php esc_url( $child_menu_item -> url ); ?>">
+                                                                <?php echo esc_html( $child_menu_item -> title ); ?>
+                                                            </a>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </div>
+                                        </li>
+                                    <?php
+                                }
+                    
+                            }
+
+                        }
+                    ?>
+                </ul>        
+        <?php
+            }
+        ?>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -50,8 +84,8 @@
 </nav>
 
 <?php 
-    // wp_nav_menu([
-    //     'theme_location' => 'aquila-header-menu',
-    //     'container_class' => 'my_extra_menu_class'
-    // ]);
+    wp_nav_menu([
+        'theme_location' => 'aquila-header-menu',
+        'container_class' => 'my_extra_menu_class'
+    ]);
 ?>

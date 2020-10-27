@@ -37,4 +37,19 @@ class Menus {
         return ! empty( $menu_id ) ? $menu_id : '';
     }
 
+    public function get_child_menu_items( $menu_array, $parent_id ) {
+        $child_menus = [];
+
+        if( ! empty( $menu_array ) && is_array( $menu_array ) ) {
+            foreach ( $menu_array as $menu ) {
+                /** Verifica si menu_item_parent tiene el mismo ID del padre, es decir tiene items de menu hijos  */
+                if( intval( $menu -> menu_item_parent ) === $parent_id ) {
+                    array_push( $child_menus, $menu );
+                }
+            }
+        }
+
+        return $child_menus;
+    }
+
 }
