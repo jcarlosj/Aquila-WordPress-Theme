@@ -4,7 +4,10 @@
  */
 
  $menu_class = \AQUILA_THEME\Inc\Menus :: get_instance();   //  Obtenemos instancia de Menu
- $menu_class -> get_menu_id( 'aquila-header-menu' );
+ $header_menu_id = $menu_class -> get_menu_id( 'aquila-header-menu' );
+ $header_menu_items = wp_get_nav_menu_items( $header_menu_id );                  //  Recupera todos los elementos del menú de un menú de navegación.
+
+ echo '<pre>';   print_r( $header_menu_items );  wp_die();
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <?php
