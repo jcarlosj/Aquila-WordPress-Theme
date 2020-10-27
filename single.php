@@ -1,5 +1,5 @@
 <?php
-/** Index Template File 
+/** Single Template File
  * @package Aquila
  */
 
