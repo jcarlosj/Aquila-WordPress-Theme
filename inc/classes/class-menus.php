@@ -29,4 +29,9 @@ class Menus {
         ]);
     }
 
+    public function get_menu_id( $location ) {
+        $locations = get_nav_menu_locations();      //  Obtener todas las ubicaciones
+        echo '<pre>';   print_r( $locations );  wp_die();
+    }
+
 }

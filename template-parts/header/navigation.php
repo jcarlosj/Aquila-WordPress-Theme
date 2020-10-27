@@ -2,6 +2,9 @@
 /** Header Navigation Template
  * @package Aquila
  */
+
+ $menu_class = \AQUILA_THEME\Inc\Menus :: get_instance();   //  Obtenemos instancia de Menu
+ $menu_class -> get_menu_id( 'aquila-header-menu' );
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <?php
@@ -44,8 +47,8 @@
 </nav>
 
 <?php 
-    wp_nav_menu([
-        'theme_location' => 'aquila-header-menu',
-        'container_class' => 'my_extra_menu_class'
-    ]);
+    // wp_nav_menu([
+    //     'theme_location' => 'aquila-header-menu',
+    //     'container_class' => 'my_extra_menu_class'
+    // ]);
 ?>
