@@ -82,10 +82,3 @@ $header_menu_items = wp_get_nav_menu_items( $header_menu_id );                  
         </form>
     </div>
 </nav>
-
-<?php 
-    wp_nav_menu([
-        'theme_location' => 'aquila-header-menu',
-        'container_class' => 'my_extra_menu_class'
-    ]);
-?>
