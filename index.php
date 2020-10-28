@@ -45,9 +45,7 @@
                                             <?php
                                         }
 
-                                        // Display post content
-                                        the_title( '<h3>', '</h3>' );
-                                        the_excerpt( '<div>', '</div>' );
+                                        get_template_part( 'template-parts/content' );
 
                                         $index ++;
 
@@ -63,7 +61,12 @@
 
                         </div>
                     <?php
+                else :
+                    get_template_part( 'template-parts/content-none' );
                 endif; 
+                
+                //  Solo Debugging
+                //  get_template_part( 'template-parts/content-none' ); 
             ?> 
         </main>
     </div>
