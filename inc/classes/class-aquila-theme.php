@@ -40,6 +40,7 @@ class Aquila_Theme {
             'default-repeat' => 'no-repeat'
         ]);
         add_theme_support( 'post-thumbnails' );                         //  Habilita la opcion de agregar imagenes personalizadas a las publicaciones
+        add_image_size( 'featured-thumbnail', 330, 185, true );             //  Registra un nuevo tamaño de imagen con cropping activo
         add_theme_support( 'customize-selective-refresh-widgets' );     //  Habilita la actualización selectiva para los widgets que se administran dentro del personalizador
         add_theme_support( 'automatic-feed-links' );                    //  Habilita enlaces automáticos de alimentación para publicar y comentar en el encabezado
         add_theme_support( 'html5',                                     //  Permite el uso de marcado HTML5 para los formularios de búsqueda, formularios de comentarios, listas de comentarios, galería y subtítulos

@@ -17,10 +17,10 @@ $has_post_thumbnail = get_the_post_thumbnail( $the_post_id );   //  Obtiene la m
                         <?php 
                             the_post_custom_thumbnail(
                                 $the_post_id,       //  ID del post
-                                'featured-large',   //  Tamano de la imagen
+                                'featured-thumbnail',   //  Tamano de la imagen registrada en WordPress
                                 [
-                                    'sizes' => '(max-width: 590px) 590px, 425px',
-                                    'class' => 'attachment-featured-large size-featured-image'
+                                    'sizes' => '(max-width: 330px) 330px, 185px',
+                                    'class' => 'attachment-featured-thumbnail size-featured-image'
                                 ]
                             ); 
                         ?>
