@@ -28,6 +28,7 @@ if( ! defined( 'AQUILA_DIR_STYLE' ) ) {
 // echo '<pre>';   print_r( AQUILA_DIR_PATH ); wp_die();
 
 require_once AQUILA_DIR_PATH. '/inc/helpers/autoloader.php';    //  Incluirá automáticamente todas las clases que definamos 
+require_once AQUILA_DIR_PATH. '/inc/helpers/template-tags.php'; //  Incluirá fragmentos de código que pueden ser utilizados en toda la aplicación
 
 function aquila_get_theme_instance() {
 	\AQUILA_THEME\Inc\Aquila_Theme::get_instance();
