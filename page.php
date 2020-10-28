@@ -5,8 +5,14 @@
 
     get_header();
 ?>
-        <div class="content">
-            <?php esc_html_e( basename( __FILE__ ) ); ?>
+    <div id="primary">
+
+        <div class="container file-name">
+            <span>
+                <?php esc_html_e( basename( __FILE__ ) ); ?>
+            </span>
         </div>
+        
+    </div>
 <?php 
     get_footer();
