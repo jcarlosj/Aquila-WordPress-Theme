@@ -31,13 +31,36 @@
                                 }
                             ?>
 
-                            <?php
-                                while ( have_posts() ) : the_post(); 
-                                    // Display post content
-                                    the_title();
-                                    the_excerpt();
-                                endwhile; 
-                            ?>
+                            <div class="row">
+                                <?php
+                                    $index = 0;
+                                    $columns = 3;
+                                    // Loop WP
+                                    while ( have_posts() ) : the_post(); 
+                                        
+                                        // Genera etiquetas de grilla 
+                                        if( 0 === $index % $columns ) {
+                                            ?>
+                                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <?php
+                                        }
+
+                                        // Display post content
+                                        the_title( '<h3>', '</h3>' );
+                                        the_excerpt( '<div>', '</div>' );
+
+                                        $index ++;
+
+                                        if( 0 !== $index && 0 === $index % $columns ) {
+                                            ?>
+                                                </div>
+                                            <?php
+                                        }
+
+                                    endwhile; 
+                                ?>
+                            </div>
+
                         </div>
                     <?php
                 endif; 
