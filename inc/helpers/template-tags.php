@@ -71,3 +71,18 @@ function aquila_posted_by() {
 
     echo '<span class="byline text-secondary">' .$byline. '</span>';
 }
+
+function aquila_the_excerpt( $trim_character_count = 0 ) {
+    /** Verifica si la publicación NO tiene un extracto personalizado. */
+    if( ! has_excerpt() || 0 === $trim_character_count ) {
+        the_excerpt();      //  Muestre el extracto de la publicación o una version reducida del contenido en caso de no tenerlo.
+        return;
+    }
+
+    /** Obtiene el extracto */
+    $excerpt = wp_strip_all_tags( get_the_excerpt() );              //  Elimine correctamente todas las etiquetas HTML, incluidos el script y el estilo
+    $excerpt = substr( $excerpt, 0, $trim_character_count );        //  Obtiene un fragmento del extracto que inicia del caracter 0 al $trim_character_count
+    $excerpt = substr( $excerpt, 0, strrpos( $excerpt, ' ' ) );     //  Encuentra la posición de la última aparición de una subcadena y elimina la última parabra "cortada en la mayoría de los casos"
+
+    echo $excerpt .' ...';
+}
