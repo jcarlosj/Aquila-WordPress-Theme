@@ -26,6 +26,11 @@ img {
     display: none;
 }
 
+/** Nav item */
+.nav-item:hover .dropdown-menu:not( .show ) {
+    display: block;
+}
+
 /** Debugging */
 .file-name span {
     background-color: orange;
