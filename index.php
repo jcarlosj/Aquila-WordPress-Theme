@@ -60,6 +60,13 @@
                             </div>
 
                         </div>
+
+                        <div class="container">
+                            <?php 
+                                /** Pagination */
+                                aquila_post_pagination();
+                            ?>
+                        </div>
                     <?php
                 else :
                     get_template_part( 'template-parts/content-none' );
@@ -67,6 +74,7 @@
                 
                 //  Solo Debugging
                 //  get_template_part( 'template-parts/content-none' ); 
+
             ?> 
         </main>
     </div>

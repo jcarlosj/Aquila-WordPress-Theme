@@ -98,3 +98,43 @@ function aquila_excerpt_more( $more = '' ) {
 
     return $more;
 }
+
+function aquila_single_page_pagination() {
+    ?>
+        <nav class="aquila-single-pagination">
+            <?php
+                previous_post_link( '%link', '%title' );    //  Muestra el enlace de la publicación anterior adyacente a la publicación actual.
+                next_post_link( '%link', '%title' );        //  Muestra el enlace de la siguiente publicación adyacente a la publicación actual.
+                /**
+                 * Cambia el formato predeterminado '«%link' a solo el título de la publicación, eliminando las flechas dobles predeterminadas.
+                 */
+            ?>
+        </nav>
+    <?php
+}
+
+function aquila_post_pagination() {
+
+    $args = [
+        'before_page_number' => '<span class="btn border border-secondary mr-2 mb-2">',
+        'after_page_number'  => '</span>'
+    ];
+
+    $allowed_tags = [
+        'span' => [
+            'class' => []
+        ],
+        'a' => [
+            'class' => [],
+            'href'  => []
+        ]
+    ];
+
+    printf( 
+        '<nav class="aquila-post-pagination clearfix">%s</nav>', 
+        wp_kses(
+            paginate_links( $args ),    //  Recupere el enlace paginado para las páginas de publicación de archivos.
+            $allowed_tags               //  Etiquetas HTML permitidas
+        )
+    );
+}

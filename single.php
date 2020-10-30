@@ -31,7 +31,6 @@
                                 }
                             ?>
 
-  
                             <?php
                                 // Loop WP
                                 while ( have_posts() ) : the_post(); 
@@ -39,8 +38,15 @@
                                 endwhile; 
                             ?>
 
-
                         </div>
+
+                        <div class="container">
+                            <?php 
+                                /** Pagination */
+                                aquila_single_page_pagination();
+                            ?>
+                        </div>
+
                     <?php
                 else :
                     get_template_part( 'template-parts/content-none' );
@@ -49,6 +55,7 @@
                 //  Solo Debugging
                 //  get_template_part( 'template-parts/content-none' ); 
             ?> 
+
         </main>
 
     </div>
