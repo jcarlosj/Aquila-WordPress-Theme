@@ -36,7 +36,7 @@ $has_post_thumbnail = get_the_post_thumbnail( $the_post_id );           //  Obti
         // Title
         if( is_single() || is_page() ) {
             printf(
-                '<h1 class="page-title text-dark %!$s ">%2$s</h1>',
+                '<h1 class="page-title text-dark %1$s ">%2$s</h1>',
                 esc_attr( $heading_class ),
                 wp_kses_post( get_the_title() )     //  Desinfecta el contenido de las etiquetas HTML permitidas para el contenido de la publicación.
             );
