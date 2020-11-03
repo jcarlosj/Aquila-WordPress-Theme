@@ -1,5 +1,7 @@
 //  webpack.config.js
-const path = require( 'path' );
+const 
+    path = require( 'path' ),
+    MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 //  Rutas de archivos
 const 
@@ -24,6 +26,14 @@ module .exports = ( env, argv ) => ({
                 include: [ JS ],
                 exclude: /node_modules/,
                 use: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [ 
+                    MiniCssExtractPlugin .loader, 
+                    'css-loader' 
+                ]
             }
         ]
     }
