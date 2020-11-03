@@ -1,10 +1,19 @@
 //  webpack.config.js
 const path = require( 'path' );
 
+//  Rutas de archivos
+const 
+    JS = path .resolve( __dirname + '/assets/src/js' ),
+    IMG = path .resolve( __dirname + '/assets/src/images' ),
+    BUILD = path .resolve( __dirname + '/build' );
+
 module .exports = ( env, argv ) => ({
-    entry: path .resolve( __dirname + '/assets/src/js/main.js' ),
+    entry: {
+        main: JS + '/main.js',
+        single: JS + '/single.js'
+    },
     output: {
-        path: path .resolve( __dirname + '/assets/dist' ),
+        path: BUILD,
         filename: 'js/[name].js'
     }
 });
