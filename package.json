@@ -1,0 +1,27 @@
+{
+  "name": "aquila",
+  "version": "1.0.0",
+  "description": "Aquila WordPress Theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcarlosj/Aquila-WordPress-Theme.git"
+  },
+  "keywords": [
+    "wordpress",
+    "themes"
+  ],
+  "author": "Juan Carlos Jiménez Gutiérrez <jcjimenez29@misena.edu.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jcarlosj/Aquila-WordPress-Theme/issues"
+  },
+  "homepage": "https://github.com/jcarlosj/Aquila-WordPress-Theme#readme",
+  "devDependencies": {
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.1.0"
+  }
+}
