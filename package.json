@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/jcarlosj/Aquila-WordPress-Theme#readme",
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "babel-loader": "^8.1.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.1.0"
   }

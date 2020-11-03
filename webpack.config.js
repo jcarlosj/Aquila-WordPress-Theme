@@ -15,5 +15,16 @@ module .exports = ( env, argv ) => ({
     output: {
         path: BUILD,
         filename: 'js/[name].js'
+    },
+    devtool: 'source-map',
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                include: [ JS ],
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            }
+        ]
     }
 });
