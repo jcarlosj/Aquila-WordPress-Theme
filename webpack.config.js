@@ -34,6 +34,16 @@ module .exports = ( env, argv ) => ({
                     MiniCssExtractPlugin .loader, 
                     'css-loader' 
                 ]
+            },
+            {
+                test: /\.(png|jpg|svg|jpeg|gif|ico)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]',
+                        publicPath: 'production' === process .env .NODE_ENV ? '../' : '../../'
+                    }
+                }
             }
         ]
     }
