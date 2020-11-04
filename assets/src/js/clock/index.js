@@ -1,4 +1,4 @@
-//  index.js
+//  clock/index.js
 
 ( function ( $ ) {
 	class Clock {

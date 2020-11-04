@@ -2,7 +2,10 @@
 const 
     path = require( 'path' ),
     MiniCssExtractPlugin = require( 'mini-css-extract-plugin' ),
-    { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
+    { CleanWebpackPlugin } = require( 'clean-webpack-plugin' ),
+    OptimizeCssAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' ),
+    cssnano = require( 'cssnano' ), // https://cssnano.co/
+    UglyfyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' );
 
 //  Rutas de archivos
 const 
@@ -39,7 +42,7 @@ const rules = [
 ];
 
 //  Complementos - Nota: argv.mode devolverá 'development' o 'production'.
-const plugins = () => [
+const plugins = ( argv ) => [
     new CleanWebpackPlugin( {
         cleanStaleWebpackAssets: ( 'production' === argv .mode  )    //  Elimina automáticamente todos los activos de paquete web no utilizados en la reconstrucción, cuando se establece en verdadero en producción. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
     } ), 
@@ -57,9 +60,21 @@ module .exports = ( env, argv ) => ({
         path: BUILD,
         filename: 'js/[name].js'
     },
-    devtool: 'source-map',
+    devtool: 'source-map',                  //  Genera mapas de origen
     module: {
         rules: rules
+    },
+    optimization: {
+        minimizer: [                        //  Anula el minimizador predeterminado al proporcionar una o más instancias personalizadas diferentes
+            new OptimizeCssAssetsPlugin( {  //  Complemento de Webpack para optimizar archivos CSS
+                cssProcessor: cssnano       //  Formatea y minifica CSS
+            } ),
+            new UglyfyJsWebpackPlugin( {    //  Minimiza JavaScript.
+                cache: false,               //  Desactiva el almacenamiento en caché de archivos (path: node_modules/.cache/uglifyjs-webpack-plugin).
+                parallel: true,             //  Activa la ejecución en paralelo de múltiples procesos.
+                sourceMap: false            //  Desactiva la generacion de mapas de origen de UglyfyJsWebpackPlugin
+            } ) 
+        ]
     },
     plugins: plugins( argv ),
     externals: {
