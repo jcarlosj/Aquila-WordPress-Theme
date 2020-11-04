@@ -38,6 +38,16 @@ const rules = [
     }
 ];
 
+//  Complementos - Nota: argv.mode devolverá 'development' o 'production'.
+const plugins = () => [
+    new CleanWebpackPlugin( {
+        cleanStaleWebpackAssets: ( 'production' === argv .mode  )    //  Elimina automáticamente todos los activos de paquete web no utilizados en la reconstrucción, cuando se establece en verdadero en producción. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
+    } ), 
+    new MiniCssExtractPlugin( {
+        filename: 'css/[name].css'
+    } ),
+];
+
 module .exports = ( env, argv ) => ({
     entry: {
         main: JS + '/main.js',
@@ -51,12 +61,8 @@ module .exports = ( env, argv ) => ({
     module: {
         rules: rules
     },
-    plugins: [
-        new CleanWebpackPlugin( {
-            cleanStaleWebpackAssets: ( 'production' === argv .mode  )    //  Elimina automáticamente todos los activos de paquete web no utilizados en la reconstrucción, cuando se establece en verdadero en producción. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
-        } ), 
-        new MiniCssExtractPlugin( {
-            filename: 'css/[name].css'
-        } ),
-    ]
+    plugins: plugins( argv ),
+    externals: {
+        jquery: 'jQuery'
+    }
 });
