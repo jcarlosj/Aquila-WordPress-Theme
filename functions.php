@@ -28,42 +28,42 @@ if( ! defined( 'AQUILA_DIR_STYLE' ) ) {
 if( ! defined( 'AQUILA_BUILD_URI' ) ) {
     define( 
         'AQUILA_BUILD_URI', 
-        untrailingslashit( get_template_directory_uri(). '/build' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        untrailingslashit( get_template_directory_uri(). '/assets/build' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
     );
 }
 
 if( ! defined( 'AQUILA_BUILD_JS_URI' ) ) {
     define( 
         'AQUILA_BUILD_JS_URI', 
-        untrailingslashit( get_template_directory_uri(). '/build/js' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        untrailingslashit( get_template_directory_uri(). '/assets/build/js' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
     );
 }
 
 if( ! defined( 'AQUILA_BUILD_JS_DIR_PATH' ) ) {
     define( 
         'AQUILA_BUILD_JS_DIR_PATH', 
-        untrailingslashit( get_template_directory(). '/build/js' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        untrailingslashit( get_template_directory(). '/assets/build/js' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
     );
 }
 
 if( ! defined( 'AQUILA_BUILD_CSS_URI' ) ) {
     define( 
         'AQUILA_BUILD_CSS_URI', 
-        untrailingslashit( get_template_directory_uri(). '/build/css' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        untrailingslashit( get_template_directory_uri(). '/assets/build/css' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
     );
 }
 
 if( ! defined( 'AQUILA_BUILD_CSS_DIR_PATH' ) ) {
     define( 
         'AQUILA_BUILD_CSS_DIR_PATH', 
-        untrailingslashit( get_template_directory(). '/build/css' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        untrailingslashit( get_template_directory(). '/assets/build/css' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
     );
 }
 
 if( ! defined( 'AQUILA_BUILD_IMAGES_URI' ) ) {
     define( 
         'AQUILA_BUILD_IMAGES_URI', 
-        untrailingslashit( get_template_directory_uri(). '/build/assets/src/images' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        untrailingslashit( get_template_directory_uri(). '/assets/build/images' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
     );
 }
 

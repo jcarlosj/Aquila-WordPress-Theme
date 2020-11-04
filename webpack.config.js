@@ -11,7 +11,7 @@ const
 const 
     JS = path .resolve( __dirname + '/assets/src/js' ),
     IMG = path .resolve( __dirname + '/assets/src/images' ),
-    BUILD = path .resolve( __dirname + '/build' );
+    BUILD = path .resolve( __dirname + '/assets/build' );
 
 //  Reglas
 const rules = [
@@ -34,7 +34,7 @@ const rules = [
         use: {
             loader: 'file-loader',
             options: {
-                name: '[path][name].[ext]',
+                name: 'images/[name].[ext]',        //  Elimina [path], este asume que la ruta del punto de entrada será la misma para la salida (por eso lo eliminamos)
                 publicPath: 'production' === process .env .NODE_ENV ? '../' : '../../'
             }
         }
