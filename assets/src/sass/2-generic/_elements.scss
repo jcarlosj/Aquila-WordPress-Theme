@@ -33,6 +33,7 @@ body {
 
 	background: $color__background-body;
 	color: $color__body-text;
+	font-family: 'Lato', sans-serif ! important;
 
 	// WP Editor
 	&.mce-content-body {
@@ -58,6 +59,7 @@ img {
 	height: auto;
 	max-width: 100%;
 	vertical-align: middle;
+	width: 100%;
 }
 
 figure {
