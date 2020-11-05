@@ -22,9 +22,10 @@ const rules = [
         use: 'babel-loader'
     },
     {
-		test: /\.s[ac]ss$/i,
+		test: /\.(sa|sc|c)ss$/,
 		exclude: /node_modules/,
 		use: [
+            //  Respalda al cargador de estilo en desarrollo
 			MiniCssExtractPlugin.loader,
 			'css-loader',
 			'sass-loader',
@@ -55,7 +56,8 @@ const plugins = ( argv ) => [
 module .exports = ( env, argv ) => ({
     entry: {
         main: JS + '/main.js',
-        single: JS + '/single.js'
+        single: JS + '/single.js',
+        archive: JS + '/archive.js'
     },
     output: {
         path: BUILD,
