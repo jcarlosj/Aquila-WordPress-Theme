@@ -22,13 +22,14 @@ const rules = [
         use: 'babel-loader'
     },
     {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [ 
-            MiniCssExtractPlugin .loader, 
-            'css-loader' 
-        ]
-    },
+		test: /\.s[ac]ss$/i,
+		exclude: /node_modules/,
+		use: [
+			MiniCssExtractPlugin.loader,
+			'css-loader',
+			'sass-loader',
+		]
+	},
     {
         test: /\.(png|jpg|svg|jpeg|gif|ico)$/,
         use: {

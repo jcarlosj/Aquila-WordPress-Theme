@@ -3,8 +3,10 @@
 //  Archivos JavaScript
 import './clock';
 
-//  Archivos CSS
-import '../css/archive.css';
+//  Archivos de Hojas de estilo
+//import '../css/archive.css';
+import '../sass/main.scss';
+
 
 // Images.
 import '../images/german-shepherd.jpg';
