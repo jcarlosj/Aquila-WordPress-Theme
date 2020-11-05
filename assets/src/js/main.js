@@ -1,8 +1,5 @@
 //  main.js
 
-//  Archivos JavaScript
-import './clock';
-
 //  Archivos de Hojas de estilo
 import '../css/main/complemento.css';
 import '../sass/main.scss';
