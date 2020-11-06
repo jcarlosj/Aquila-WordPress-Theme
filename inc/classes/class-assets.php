@@ -25,7 +25,7 @@ class Assets {
 
     public function register_styles() {
         wp_enqueue_style( 'style', get_stylesheet_uri(), [], filemtime( AQUILA_DIR_STYLE .'/style.css' ), 'all' );                            //  style.css
-        wp_enqueue_style( 'fonts', AQUILA_DIR_URI. '/assets/src/fonts/fonts.css', [], false, 'all' );                                         //  fonts.css
+        wp_enqueue_style( 'fonts', AQUILA_BUILD_FONTS_URI. '/fonts.css', [], false, 'all' );                                         //  fonts.css
 
         /** Register Styles */
         wp_register_style( 'bootstrap', AQUILA_DIR_URI. '/assets/src/library/css/bootstrap.min.css', [], '4.5.3', 'all' );                //  bootstrap.min.css

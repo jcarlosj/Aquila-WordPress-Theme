@@ -60,6 +60,20 @@ if( ! defined( 'AQUILA_BUILD_CSS_DIR_PATH' ) ) {
     );
 }
 
+if( ! defined( 'AQUILA_BUILD_FONTS_URI' ) ) {
+    define( 
+        'AQUILA_BUILD_FONTS_URI', 
+        untrailingslashit( get_template_directory_uri(). '/assets/build/fonts' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+    );
+}
+
+if( ! defined( 'AQUILA_BUILD_FONTS_DIR_PATH' ) ) {
+    define( 
+        'AQUILA_BUILD_FONTS_DIR_PATH', 
+        untrailingslashit( get_template_directory(). '/assets/build/fonts' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+    );
+}
+
 if( ! defined( 'AQUILA_BUILD_IMAGES_URI' ) ) {
     define( 
         'AQUILA_BUILD_IMAGES_URI', 
