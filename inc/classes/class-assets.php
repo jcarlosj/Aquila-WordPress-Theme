@@ -21,6 +21,8 @@ class Assets {
         /** Actions */
         add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'remove_block_styles' ], 100 );
+    
     }
 
     public function register_styles() {
@@ -60,6 +62,14 @@ class Assets {
             wp_enqueue_script( 'archive' );         //  Hace disponible el script
         }
 
+    }
+
+    //  Elimina CSS de la biblioteca de bloques de Gutenberg para que no se cargue en el FrontEnd
+    public function remove_block_styles() {
+        wp_dequeue_style( 'wc-block-editor' );      //  Elimina Bloques de WooCommerce
+        wp_dequeue_style( 'wp-block-style' );       //  Elimina Bloques de WooCommerce
+        wp_dequeue_style( 'wp-block-library' );
+        wp_dequeue_style( 'wp-block-library-theme' );
     }
 
 }
