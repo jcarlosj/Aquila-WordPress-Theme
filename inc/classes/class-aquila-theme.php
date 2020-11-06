@@ -58,7 +58,11 @@ class Aquila_Theme {
         );
         add_theme_support( 'wp-block-styles' );                         //  Habilita soporte para estilos de bloques en Gutenberg (https://make.wordpress.org/core/2018/06/05/whats-new-in-gutenberg-5th-june/)
         add_theme_support( 'align-wide' );                              //  Habilita soporte de alineacion (Wide/Full Screen) de bloques en Gutenberg 
-        add_editor_style();                                             //  Agrega llamada hoja de estilo personalizadas del editor TinyMCE. Recibe parametro como nombre de archivo relativo a la raíz del tema. También acepta una variedad de hojas de estilo. Es opcional y por defecto es 'editor-style.css'.
+        add_theme_support( 'editor-styles' );                           //  Habilita el soporte de hojas de estilo para el editor
+        add_editor_style([                                              //  Agrega llamada hoja de estilo personalizadas del editor TinyMCE. Recibe parametro como nombre de archivo relativo a la raíz del tema. También acepta una variedad de hojas de estilo. Es opcional y por defecto es 'editor-style.css'.
+            './assets/build/css/editor.css', 
+            './assets/build/css/fonts.css' 
+        ]);
     
         /** Establece el ancho máximo para el contenido en la interfaz */
         global $content_width;

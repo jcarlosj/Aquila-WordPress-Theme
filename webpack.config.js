@@ -79,7 +79,8 @@ module .exports = ( env, argv ) => ({
     entry: {
         main: JS + '/main.js',
         single: JS + '/single.js',
-        archive: JS + '/archive.js'
+        archive: JS + '/archive.js',
+        editor: JS + '/editor.js'
     },
     output: {
         path: BUILD,
