@@ -26,12 +26,7 @@ class Block_Patterns {
 
     public function register_block_patterns() {
 
-        ob_start();         //  Activa el almacenamiento en búfer de la salida
-
-        get_template_part( 'template-parts/patterns/block-two-columns' );
-        $block_content = ob_get_contents();     //  Devuelve contenido del búfer de salida
-        
-        ob_end_clean();     //  Limpiar (eliminar) el búfer de salida
+        $block_content = $this -> get_pattern_content( 'template-parts/patterns/block-two-columns' );
         
         register_block_pattern(
             'aquila/block-image-text-button',
@@ -43,12 +38,7 @@ class Block_Patterns {
             )
         );
 
-        ob_start();         //  Activa el almacenamiento en búfer de la salida
-
-        get_template_part( 'template-parts/patterns/cover' );
-        $cover_content = ob_get_contents();     //  Devuelve contenido del búfer de salida
-        
-        ob_end_clean();     //  Limpiar (eliminar) el búfer de salida
+        $cover_content = $this -> get_pattern_content( 'template-parts/patterns/cover' );
 
         register_block_pattern(
             'aquila/cover',
@@ -60,6 +50,18 @@ class Block_Patterns {
             ]
         );
         
+    }
+
+    public function get_pattern_content( $template_path ) {
+
+        ob_start();         //  Activa el almacenamiento en búfer de la salida
+
+        get_template_part( $template_path );
+        $template_content = ob_get_contents();     //  Devuelve contenido del búfer de salida
+        
+        ob_end_clean();     //  Limpiar (eliminar) el búfer de salida
+
+        return $template_content;
     }
 
     public function register_block_pattern_categories() {
