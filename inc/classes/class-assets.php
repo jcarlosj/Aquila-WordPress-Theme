@@ -21,7 +21,7 @@ class Assets {
         /** Actions */
         add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
-        add_action( 'wp_enqueue_scripts', [ $this, 'remove_block_styles' ], 100 );
+        // add_action( 'wp_enqueue_scripts', [ $this, 'remove_block_styles' ], 100 );
     
     }
 
