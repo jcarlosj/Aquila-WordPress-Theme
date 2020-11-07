@@ -64,6 +64,9 @@ class Aquila_Theme {
             './assets/build/css/editor.css', 
             './assets/build/css/fonts.css' 
         ]);
+
+        //  Elimina patrones de bloque de Gutenberg del núcleo de WordPress
+        remove_theme_support( 'core-block-patterns' );
     
         /** Establece el ancho máximo para el contenido en la interfaz */
         global $content_width;
