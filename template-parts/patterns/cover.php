@@ -4,8 +4,8 @@
  */
 ?>
 
-<!-- wp:cover {"url":"http://localhost:8080/wp-content/uploads/2020/11/city-1.jpg","id":160,"focalPoint":{"x":"0.50","y":"1.00"},"align":"full"} -->
-<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(http://localhost:8080/wp-content/uploads/2020/11/city-1.jpg);background-position:50% 100%">
+<!-- wp:cover {"url":"<?php echo esc_url( AQUILA_BUILD_IMAGES_URI. '/cover.jpg' )?>","id":160,"focalPoint":{"x":"0.50","y":"1.00"},"align":"full"} -->
+<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(<?php echo esc_url( AQUILA_BUILD_IMAGES_URI. '/cover.jpg' )?>);background-position:50% 100%">
     <div class="wp-block-cover__inner-container">
     
     <!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
