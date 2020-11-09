@@ -71,7 +71,8 @@ const plugins = ( argv ) => [
                 variants: [ "300", "300italic", "regular", "italic", "700italic" ] 
             }
         ],
-        path: 'fonts/' 
+        path: 'fonts',
+        filename: 'fonts/fonts.css'
     })
 ];
 
