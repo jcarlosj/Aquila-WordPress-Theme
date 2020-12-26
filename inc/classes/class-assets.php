@@ -75,6 +75,52 @@ class Assets {
 
     public function enqueue_editor_assets() {
         /** Incluye hojas de estilo para el editor en el BackEnd (WP Admin) y a todas las interfaces el FrontEnd & BackEnd */
+        $asset_config_file = sprintf( '%s/assets.php', AQUILA_BUILD_PATH );     //  Obtengo el archivo de configuración de assets generado, para el desarrollo.
+
+        /** Valida si el archivo generado existe */
+        if( ! file_exists( $asset_config_file ) ) {
+            return;
+        }
+
+        $asset_config = require_once $asset_config_file;
+
+        /** Valida si NO tenemos la dependencia disponible */
+        if( empty( $asset_config[ 'js/editor.js' ] ) ) {
+            return;
+        }
+
+        $editor_asset = $asset_config[ 'js/editor.js' ];
+        $js_dependencies = ( ! empty( $editor_asset[ 'dependencies' ] ) )   ? $editor_asset[ 'dependencies' ]   : [] ;                          //  Extraigo las dependencias del array en el archivo
+        $version = ( ! empty( $editor_asset[ 'version' ] ) )   ? $editor_asset[ 'version' ]   : filemtime( $asset_config_file ) ;       //  Extraigo # de version autogenerada (para el cacheo en el navegador)
+
+        /** Ponemos en cola las dependencias Java Script para Bloque de Gutenberg en el Tema */
+        if( is_admin() ) {      //  Verificamos que el Editor esta de lado del BackEnd
+
+            /** Incluye archivo JavaScript con las dependencias requeridas */
+            wp_enqueue_script(
+                'aquila-blocks',                    //  Handle
+                AQUILA_BUILD_JS_URI. '/blocks.js',  //  Ruta del archivo generado
+                $js_dependencies,                   //  Dependencias generadas
+                $version,                           //  Versión auto generada
+                true
+            );
+
+        }
+
+        /** CSS del bloque de Gutenberg */
+        $css_dependencies = [       //   Serán la biblioteca de bloques de WordPress, por que no obtenemos dependencias CSS a través del complemento Extractor 'dependency-extraction-webpack-plugin'
+            'wp-block-library',                  
+            'wp-block-library-theme'
+        ];
+
+        wp_enqueue_style(
+            'aquila-blocks',                            //  Handle
+            AQUILA_BUILD_CSS_URI. '/blocks.css',        //  Ruta del archivo generado
+            $css_dependencies,                          //  Dependencias generadas
+            filemtime( AQUILA_BUILD_CSS_DIR_PATH. '/blocks.css' ),                           //  Versión auto generada
+            'all'
+        );
+
     }
 
 }
