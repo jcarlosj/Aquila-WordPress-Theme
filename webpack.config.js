@@ -6,7 +6,8 @@ const
     OptimizeCssAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' ),
     cssnano = require( 'cssnano' ), // https://cssnano.co/
     UglyfyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' ),
-    GoogleFontsPlugin = require( "@beyonk/google-fonts-webpack-plugin" );
+    GoogleFontsPlugin = require( "@beyonk/google-fonts-webpack-plugin" ),
+    DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
 
 //  Rutas de archivos
 const 
@@ -73,6 +74,10 @@ const plugins = ( argv ) => [
         ],
         path: 'fonts',
         filename: 'fonts/fonts.css'
+    }),
+    new DependencyExtractionWebpackPlugin({
+        injectPolyfill: true,       //  Forza que wp-polyfill se incluya en la lista de dependencias de cada punto de entrada. Esto sería lo mismo que agregar la importación '@wordpress/polyfill'; a cada punto de entrada.
+        combineAssets: true         //  Crea un archivo de activos para cada punto de entrada. Cuando esta marca se establece en verdadero, toda la información sobre los activos se combina en un solo archivo assets. (Json | php) generado en el directorio de salida (Ejecute: npm run prod & npm run dev)
     })
 ];
 
@@ -81,7 +86,8 @@ module .exports = ( env, argv ) => ({
         main: JS + '/main.js',
         single: JS + '/single.js',
         archive: JS + '/archive.js',
-        editor: JS + '/editor.js'
+        editor: JS + '/editor.js',
+        blocks: JS + '/blocks.js'
     },
     output: {
         path: BUILD,

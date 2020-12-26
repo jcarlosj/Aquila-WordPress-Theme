@@ -22,6 +22,7 @@ class Assets {
         add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
         // add_action( 'wp_enqueue_scripts', [ $this, 'remove_block_styles' ], 100 );
+        add_action( 'enqueue_block_assets', [ $this, 'enqueue_editor_assets' ] );
     
     }
 
@@ -70,6 +71,10 @@ class Assets {
         wp_dequeue_style( 'wp-block-style' );       //  Elimina Bloques de WooCommerce
         wp_dequeue_style( 'wp-block-library' );
         wp_dequeue_style( 'wp-block-library-theme' );
+    }
+
+    public function enqueue_editor_assets() {
+        /** Incluye hojas de estilo para el editor en el BackEnd (WP Admin) y a todas las interfaces el FrontEnd & BackEnd */
     }
 
 }

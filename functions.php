@@ -32,6 +32,14 @@ if( ! defined( 'AQUILA_BUILD_URI' ) ) {
     );
 }
 
+if( ! defined( 'AQUILA_BUILD_PATH' ) ) {
+    define( 
+        'AQUILA_BUILD_PATH', 
+        untrailingslashit( get_template_directory(). '/assets/build' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+    );
+}
+
+
 if( ! defined( 'AQUILA_BUILD_JS_URI' ) ) {
     define( 
         'AQUILA_BUILD_JS_URI', 
