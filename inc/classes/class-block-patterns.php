@@ -83,12 +83,6 @@ class Block_Patterns {
             }
         }
 
-
-        register_block_pattern_category(
-            'hero',
-            array( 'label' => __( 'Hero', 'my-plugin' ) )
-        );
-
     }
 
 }

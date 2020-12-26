@@ -7,6 +7,7 @@ import '../sass/main.scss';
 
 // Images.
 import '../images/patterns/cover.jpg';
+import '../images/patterns/medellin.jpg';
 import '../images/german-shepherd.jpg';
 
 
