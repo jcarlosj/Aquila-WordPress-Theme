@@ -2,16 +2,24 @@ import { RichText, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, RadioControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
+/** Icons */
+import { getIconComponent } from './icons-map';
+
 const Edit = ( props ) => {
 
-    const { className, attributes: { content, option }, setAttributes } = props;
+    const 
+        { className, attributes: { content, option }, setAttributes } = props,
+        HeadingIcon = getIconComponent( option );
 
     console.warn( 'Edit', props );
     console.warn( 'option', option );
+    console.warn( 'Component', HeadingIcon );
 
     return ( 
         <div className="aquila-icon-heading">
-            <span className="aquila-icon-heading__heading" />
+            <span className="aquila-icon-heading__heading">
+                <HeadingIcon />
+            </span>
             <RichText 
                 tagName="h4"                    //  La etiqueta aquí es la salida del elemento y se puede editar en el administrador.
                 className={ className }
