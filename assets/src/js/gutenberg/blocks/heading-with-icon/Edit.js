@@ -1,11 +1,13 @@
-import { RichText } from '@wordpress/block-editor';
+import { RichText, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, RadioControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 const Edit = ( props ) => {
 
-    const { className, attributes: { content }, setAttributes } = props;
+    const { className, attributes: { content, option }, setAttributes } = props;
 
     console.warn( 'Edit', props );
+    console.warn( 'option', option );
 
     return ( 
         <div className="aquila-icon-heading">
@@ -17,6 +19,22 @@ const Edit = ( props ) => {
                 onChange={ ( content ) => setAttributes({ content }) }
                 placeholder={ __( 'Heading...', 'aquila' ) }
             />
+            <InspectorControls>
+                <PanelBody 
+                    title={ __( 'Block Settings', 'aquila' ) }
+                >
+                    <RadioControl
+                        label={ __( 'Select the icon', 'aquila' ) }
+                        help={ __( 'Controls icon selection', 'aquila' ) }
+                        selected={ option }
+                        options={ [
+                            { label: __( 'Dos', 'aquila' ), value: 'dos' },
+                            { label: __( 'Dont\'s', 'aquila' ), value: 'donts' },
+                        ] }
+                        onChange={ ( option ) => { setAttributes( { option } ) } }
+                    />
+                </PanelBody>
+            </InspectorControls>
         </div> 
     );
 }

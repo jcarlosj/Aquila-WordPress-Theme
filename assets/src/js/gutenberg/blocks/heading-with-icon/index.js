@@ -27,7 +27,7 @@ registerBlockType( 'aquila-blocks/heading-with-icon', {
     edit: Edit,
     save({ attributes: { content } }) {
         console.warn( 'save', content );
-        
+
         return ( 
             <div className="aquila-icon-heading">
                 <span className="aquila-icon-heading__heading" />
