@@ -1,5 +1,9 @@
 import { registerBlockType } from '@wordpress/blocks';
+import { RichText } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
+
+/** Component */
+import Edit from './Edit';
 
 /** Registra el tipo de bloque */
 registerBlockType( 'aquila-blocks/heading-with-icon', {
@@ -8,10 +12,31 @@ registerBlockType( 'aquila-blocks/heading-with-icon', {
     icon: 'admin-customizer',
     category: 'aquila',
     description: __( 'Add heading and select icon', 'aquila' ),
-    edit() {
-        return <div>This is the header block with icon (from the editor).</div>;
+    attributes: {
+        option: {
+            type: 'string',
+            default: 'dos'
+        },
+        content: {
+            type: 'string',
+            source: 'html',
+            selector: 'h4',
+            default: __( 'Dos', 'aquila' )
+        },
     },
-    save() {
-        return <div>This is the header block with icon (from the frontend).</div>;
+    edit: Edit,
+    save({ attributes: { content } }) {
+        console.warn( 'save', content );
+        
+        return ( 
+            <div className="aquila-icon-heading">
+                <span className="aquila-icon-heading__heading" />
+        
+                <RichText.Content 
+                    tagName="h4"
+                    value={ content }
+                />
+            </div>
+        );
     },
 } );
