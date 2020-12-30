@@ -3,6 +3,12 @@
  * @package Aquila
  */
 
+    /** By Testing */
+    $post_id = get_the_ID();
+    // $post = get_post( $post_id );
+    // $parsed_blocks = parse_blocks( $post -> post_content );
+    // echo '<pre>';   print_r( $parsed_blocks );   echo '</pre>';     wp_die();
+
     get_header();
 ?>
     <div id="primary">
@@ -10,7 +16,9 @@
         <div class="container file-name">
             <span>
                 <?php esc_html_e( basename( __FILE__ ) ); ?>
+                ( post: <?php echo $post_id; ?> )
             </span>
+
         </div>
 
         <main id="main" class="site-main mt-5" role="main">

@@ -27,5 +27,10 @@ const blockColumns = [
 ];
 
 export const INNER_BLOCKS = [
-    [ 'core/group', { className: getClass( 'group' ) }, blockColumns ]
+    [ 'core/group', { 
+            className: getClass( 'group' ),
+            backgroundColor: 'luminous-vivid-amber'     //  Color de fondo por defecto para el bloque de grupo
+        },
+        blockColumns 
+    ]
 ];
