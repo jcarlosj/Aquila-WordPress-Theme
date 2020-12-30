@@ -3,4 +3,5 @@
 //  Archivos de Hojas de estilo
 import '../sass/editor.scss';
 
-console .log( 'editor.js is Working!' );
+// eslint-disable-next-line no-console
+console.log( 'editor.js is Working!' );

@@ -3,4 +3,5 @@
 //  Archivos de Hojas de estilo
 import '../css/archive.css';
 
-console .log( 'archive.js is Working!' );
+// eslint-disable-next-line no-console
+console.log( 'archive.js is Working!' );

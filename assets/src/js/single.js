@@ -3,4 +3,5 @@
 //  Archivos JavaScript
 import './clock';
 
-console .log( 'single.js is Working!' );
+// eslint-disable-next-line no-console
+console.log( 'single.js is Working!' );
