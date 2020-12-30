@@ -1,25 +1,31 @@
+const getClass = ( postClassName ) => {
+    let preClassName = 'aquila-dos-and-donts';
+
+    return `${ preClassName }__${ postClassName }`;
+}
+
 const createBlockColumn = ( valueOption, valueClassName, heading ) => {
 
-    return [ 'core/column', { className: valueClassName }, [
+    return [ 'core/column', { className: getClass( valueClassName ) }, [
         [ 'aquila-blocks/heading-with-icon', {
-                className: 'aquila-dos-and-donts__heading',
+                className: getClass( 'heading' ),
                 option: valueOption,
                 content: heading
             },
             []
         ],
-        [ 'core/list', { className: 'aquila-dos-and-donts__list' } ]
+        [ 'core/list', { className: getClass( 'list' ) } ]
     ] ];
 
 }
 
 const blockColumns = [
-    [ 'core/columns', { className: 'aquila-dos-donts__cols' }, [
-        createBlockColumn( 'dos', 'aquila-dos-and-donts__col-one', "Dos" ),
-        createBlockColumn( 'donts', 'aquila-dos-and-donts__col-two', "Dont's" )
+    [ 'core/columns', { className: getClass( 'cols' ) }, [
+        createBlockColumn( 'dos', 'col-one', "Dos" ),
+        createBlockColumn( 'donts', 'col-two', "Dont's" )
     ] ]
 ];
 
 export const INNER_BLOCKS = [
-    [ 'core/group', { className: 'aquila-dos-and-donts__group' }, blockColumns ]
+    [ 'core/group', { className: getClass( 'group' ) }, blockColumns ]
 ];

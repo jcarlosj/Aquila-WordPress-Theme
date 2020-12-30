@@ -3,7 +3,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
 /** Inner Blocks */
 import { INNER_BLOCKS } from './template';
 
-const ALLOWED_BLOCKS = [ 'core/group', 'core/columns', 'core/column', 'core/list' ];
+const ALLOWED_BLOCKS = [ 'core/group' ];
 
 const Edit = () => {
 
