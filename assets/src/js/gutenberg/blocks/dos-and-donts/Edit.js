@@ -1,16 +1,16 @@
 import { InnerBlocks } from '@wordpress/block-editor';
 
 /** Inner Blocks */
-import { INNER_BLOCKS_TEMPLATE } from './template';
+import { INNER_BLOCKS } from './template';
 
-const ALLOWED_BLOCKS = [ 'core/group' ];
+const ALLOWED_BLOCKS = [ 'core/group', 'core/columns', 'core/column', 'core/list' ];
 
 const Edit = () => {
 
     return ( 
         <div className="aquila-dos-and-donts">
             <InnerBlocks
-				template={ INNER_BLOCKS_TEMPLATE }
+				template={ INNER_BLOCKS }
 				allowedBlocks={ ALLOWED_BLOCKS }
 				templateLock={ true }
 			/>
