@@ -1,0 +1,8 @@
+.editor-styles-wrapper .wp-block-quote,
+.wp-block-quote {
+	&.is-style-layout-dark-background {
+        background-color: $blue-40;
+        border-left: 5px solid $blue-200;
+		padding: 24px 18px;
+	}
+}
