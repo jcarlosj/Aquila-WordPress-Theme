@@ -1,6 +1,6 @@
 /** Register Block Styles */
 
-import { registerBlockStyle } from '@wordpress/blocks';
+import { registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 
 const
@@ -32,7 +32,13 @@ const register = () => {
     
 }
 
+const deregister = () => {
+    unregisterBlockStyle( 'core/quote', 'large' );
+    unregisterBlockStyle( 'core/button', 'outline' );
+}
+
 /** Invocamos la funcion cuando el DOM ya se ha cargado */
 wp.domReady( () => {
     register();
+    deregister();
 });
